@@ -15,16 +15,16 @@ public class Main {
 
         System.out.println("Введите два слова: название товара и количество. Или end");
         Scanner scanner = new Scanner(System.in);
-        Purchase purchase = new Purchase(products.size());
+        Basket basket = new Basket(products.size());
         while (true) {
             String line = scanner.nextLine();
             if ("end".equals(line)) break;
             String[] parts = line.split(" ");
             String product = parts[0];
             int count = Integer.parseInt(parts[1]);
-            purchase.addPurchase(product, count);
+            basket.addPurchase(product, count);
         }
-        long sumPurchases = SumOfPurchases.sum(products, purchase);
+        long sumPurchases = SumOfPurchases.sum(products, basket);
         System.out.println("ИТОГО: " + sumPurchases);
     }
 
